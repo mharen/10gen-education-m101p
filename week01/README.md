@@ -35,3 +35,52 @@
 - Install setup tools, which provides `easy_install`
 - Install bottle via `easy_install`
 - Install pymongo
+
+## JSON Revisited
+- Arrays
+- Dictionaries
+- Subdocuments
+- Spec
+
+## Introduction to Class Project
+- A simple blog engine
+- Modeling the blog in a relational database
+    - posts, authors, comments, tags, etc. are spread out across different tables
+- Modeling the blog in MongoDB
+    - posts, authors, comments, tags, etc. are all included in a single document 
+	  (with arrays and subdocuments)
+	- can use natural data as the unique ID in a collection, e.g. author. 
+	  i.e. use `{ author: 'mharen' }` in the posts collection, and use 'mharen' as the `_id` 
+	  in the `authors` collection
+	
+## Introduction to Schema Design
+- To Embed or Not to Embed. That is the question
+- Let the way want to access your data guide you
+
+## Introduction to Python
+- lists
+- dicts
+- loops
+- conditionals
+- function calls
+- exception handling
+
+## Bottle Framework
+- url handlers
+- views/templates
+- form content
+- cookies
+- debugging: 
+    - `bottle.debug(True)`
+	- `bottle.run(host="localhost", port="8080")
+- redirects
+
+## The Pymongo Driver
+
+## HW1
+
+
+
+
+
+
