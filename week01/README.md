@@ -1,4 +1,4 @@
-# My Notes
+# My Notes - Week 1
 
 ## What is MongoDB?
 - non-relational database
