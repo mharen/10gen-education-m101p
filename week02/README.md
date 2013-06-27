@@ -48,4 +48,15 @@
         - tells you how many docs were removed with a `remove()` operation
         - error details if an error occurred
 
+## Pymongo
+- `find({ 'qeury': value })`
+- `find_one({ 'qeury': value })`
+- queries
+- projections (second argument to `find`/`find_one`)
+- importing data from reddit
+- regular expressions
+- `skip`, `limit`, `sort`
+- `insert`
+- upserts
 
+## Blog project
