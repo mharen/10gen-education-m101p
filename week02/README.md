@@ -60,3 +60,24 @@
 - upserts
 
 ## Blog project
+- project goals (this week)
+    - registration
+	- login
+	- welcome
+	- logout
+- implementation details
+    - cookies
+	- requests
+	- redirects
+- collections
+	- posts
+	- sessions
+	- users
+- files
+	- controllers
+	- views
+
+
+
+
+
