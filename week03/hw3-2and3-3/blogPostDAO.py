@@ -56,6 +56,8 @@ class BlogPostDAO:
         try:
             # XXX HW 3.2 Work Here to insert the post
             print "Inserting the post"
+            self.posts.insert(post)
+            
         except:
             print "Error inserting post"
             print "Unexpected error:", sys.exc_info()[0]
@@ -65,9 +67,10 @@ class BlogPostDAO:
     # returns an array of num_posts posts, reverse ordered
     def get_posts(self, num_posts):
 
-        cursor = []         # Placeholder so blog compiles before you make your changes
+        #cursor = []         # Placeholder so blog compiles before you make your changes
 
         # XXX HW 3.2 Work here to get the posts
+        cursor = self.posts.find().sort('date', -1).limit(num_posts)
 
         l = []
 
@@ -90,8 +93,9 @@ class BlogPostDAO:
     # find a post corresponding to a particular permalink
     def get_post_by_permalink(self, permalink):
 
-        post = None
+        #post = None
         # XXX Work here to retrieve the specified post
+        post = self.posts.find_one({ 'permalink': permalink })
 
         if post is not None:
             # fix up date
@@ -108,9 +112,10 @@ class BlogPostDAO:
             comment['email'] = email
 
         try:
-            last_error = {'n':-1}           # this is here so the code runs before you fix the next line
+            #last_error = {'n':-1}           # this is here so the code runs before you fix the next line
             # XXX HW 3.3 Work here to add the comment to the designated post
-
+            print "adding comment to ", permalink
+            self.posts.update({ "permalink": permalink }, { "$push": { "comments": comment } })
 
             return last_error['n']          # return the number of documents updated
 
