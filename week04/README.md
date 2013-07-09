@@ -1,25 +1,21 @@
-# My Notes - Week 3 - Schema Design
+# My Notes - Week 4 - Performance
 
-## Review of Mongo's capabilities
-- What mongo can/cannot do vs. other systems
-- What's most important when designing a schema: data access patterns
-- Goals of normalization in relational databases
-
-##  Mongo Design for Blog
-- Design with heavy embeds
-- Alternative design, which resembles traditional RDBMS design
-
-## Modeling in MongoDB
-- Living without constraints
-- Living without transactions
-- Relations
-    - One-to-one 
-    - One-to-many
-    - One-to-few
-    - Many-to-many
-        - usually really just few-to-few
-- Multikeys
-- Benefits of embedding
-- Trees
-
-    
+## Indexes
+- Creating indexes
+- Discovering indexes
+- Multikey indexes (indexes including an array value)
+    - Can index values in arrays, but not multiple arrays in the same index
+- Sparse indexes
+- Unique indexes
+- Removing dupes
+- Background vs. foreground creation
+- Using `.explain()`
+- How Mongo chooses an index to use
+- Cardinality
+    - Regular indexes: index points = # documents
+    - Sparse indexes: index points <= # documents
+    - Multikey: index points > # documents
+        - Warning: this implies that updating an array with 100 elements requires 100 index point updates, too
+- Selectivity
+    - Try to be as selective as possible
+- Hinting an index, e.g. `.hint({ a: 1, b: 1 })` or, to not use an index: `.hint({ $natural: 1 })`
