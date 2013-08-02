@@ -151,9 +151,10 @@ class BlogPostDAO:
         # XXX Final exam 
         # Work here. You need to update the num_likes value in the comment being liked
         # 
-        
+        last_error = self.posts.update({'permalink': permalink}, {'$inc': {'comments.' + str(comment_ordinal) + '.num_likes': 1}}, upsert=False,
+            manipulate=False, safe=True)
 
-        return 0
+        return last_error['n']
 
 
 
